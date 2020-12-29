@@ -5,7 +5,7 @@ local on_attach_proxy= function()
   -- nvim_command('autocmd CursorHold <buffer> lua vim.lsp.diagnostics.show_line_diagnostics()')
 end
 
-require'lspconfig'.clangd.setup{
+require'lspconfig'.ccls.setup{
     on_attach=on_attach_proxy
   }
 

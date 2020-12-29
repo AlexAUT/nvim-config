@@ -53,6 +53,8 @@ nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> grn   <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> gf    <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <silent> gqf   <cmd>lua vim.lsp.buf.code_action()<CR>
 
 " Diagnostics
 nnoremap <silent> <F8>  <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
@@ -64,6 +66,5 @@ nnoremap [q :try<bar>cp<bar>catch /^Vim\%((\a\+)\)\=:E\%(553\<bar>42\):/<bar>cla
 nnoremap ]l :try<bar>lnext<bar>catch /^Vim\%((\a\+)\)\=:E\%(553\<bar>42\):/<bar>lfirst<bar>endtry<cr>
 nnoremap [l :try<bar>lp<bar>catch /^Vim\%((\a\+)\)\=:E\%(553\<bar>42\):/<bar>llast<bar>endtry<cr>
 
-nnoremap <silent> <leader>f :Format<CR>
 
 nnoremap <F4> :FSHere<CR>
