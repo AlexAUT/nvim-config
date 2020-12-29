@@ -12,3 +12,11 @@ require'lspconfig'.clangd.setup{
 require'lspconfig'.pyls.setup{
     on_attach=on_attach_proxy
   }
+
+require'lspconfig'.cmake.setup{
+    on_attach=on_attach_proxy
+  }
+
+require'lspconfig'.sumneko_lua.setup{
+  cmd = { "/home/alex/.cache/nvim/lspconfig/sumneko_lua/lua-language-server/bin/Linux/lua-language-server", "-E", "/home/alex/.cache/nvim/lspconfig/sumneko_lua/lua-language-server/main.lua" },
+}

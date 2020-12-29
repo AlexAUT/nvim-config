@@ -15,7 +15,6 @@ Plug 'derekwyatt/vim-fswitch'
 " lsp
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Colors
 Plug 'gruvbox-community/gruvbox'
@@ -63,13 +62,13 @@ set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 " let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
 let g:completion_trigger_on_delete = 1
+let g:completion_auto_change_source = 1
 
 let g:completion_chain_complete_list = [
     \{'complete_items': ['lsp', 'snippet', 'path']},
     \{'mode': '<c-p>'},
     \{'mode': '<c-n>'}
 \]
-
 autocmd BufEnter * lua require'completion'.on_attach()
 
 " Snippets
