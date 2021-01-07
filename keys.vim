@@ -57,8 +57,8 @@ nnoremap <silent> gf    <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap <silent> gqf   <cmd>lua vim.lsp.buf.code_action()<CR>
 
 " Diagnostics
-nnoremap <silent> <F8>  <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
-nnoremap <silent> <S-F8><cmd>lua vim.lsp.diagnostic_goto_prev()<CR>
+nnoremap <silent> <F9>  <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <silent> <S-F9><cmd>lua vim.lsp.diagnostic_goto_prev()<CR>
 nnoremap <silent> <F10> <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
 
 nnoremap ]q :try<bar>cn<bar>catch /^Vim\%((\a\+)\)\=:E\%(553\<bar>42\):/<bar>cfirst<bar>endtry<cr>
@@ -66,5 +66,29 @@ nnoremap [q :try<bar>cp<bar>catch /^Vim\%((\a\+)\)\=:E\%(553\<bar>42\):/<bar>cla
 nnoremap ]l :try<bar>lnext<bar>catch /^Vim\%((\a\+)\)\=:E\%(553\<bar>42\):/<bar>lfirst<bar>endtry<cr>
 nnoremap [l :try<bar>lp<bar>catch /^Vim\%((\a\+)\)\=:E\%(553\<bar>42\):/<bar>llast<bar>endtry<cr>
 
+" C++ Build
+nnoremap <silent> <F5> :CMakeBuild --parallel<CR>
+
+" Vimspector
+nnoremap <silent> gvr :VimspectorReset<CR>
+nnoremap <silent> gvc :call vimspector#Continue()<CR>
+nnoremap <silent> gvstop :call vimspector#Stop()<CR>
+nnoremap <silent> gvp :call vimspector#Pause()<CR>
+nnoremap <silent> gvb :call vimspector#ToggleBreakpoint()<CR>
+nnoremap <silent> <F1> :call vimspector#StepOver()<CR>
+nnoremap <silent> <F2> :call vimspector#StepInto()<CR>
+nnoremap <silent> <F3> :call vimspector#StepOut()<CR>
+nnoremap <silent> <F6> :VimspectorReset<CR>
+
+
+function AfterBuildSucceeded()
+     :CMakeClose
+     call vimspector#Launch()
+endfunction
+let g:cmake_jump_on_error = 0
+augroup vim-cmake-group
+  autocmd! User CMakeBuildFailed :cfirst
+  autocmd! User CMakeBuildSucceeded exec AfterBuildSucceeded()
+augroup END
 
 nnoremap <F4> :FSHere<CR>

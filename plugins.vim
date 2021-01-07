@@ -15,11 +15,22 @@ Plug 'derekwyatt/vim-fswitch'
 " lsp
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete-lsp'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" IDE features
+Plug 'cdelledonne/vim-cmake'
+Plug 'puremourning/vimspector'
 
 " Colors
 Plug 'gruvbox-community/gruvbox'
 Plug 'joshdick/onedark.vim'
 Plug 'tomasiser/vim-code-dark'
+Plug 'herrbischoff/cobalt2.vim'
+Plug 'bluz71/vim-nightfly-guicolors'
+Plug 'mhartington/oceanic-next'
+Plug 'bluz71/vim-moonfly-colors'
 
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'romgrk/nvim-treesitter-context'
@@ -54,18 +65,21 @@ let g:diagnostic_insert_delay = 1
 " Use // as comment since it works better with uncommenting only parts
 autocmd FileType c,cpp,cs,java,cuda,glsl setlocal commentstring=//\ %s
 
-
+let g:deoplete#enable_at_startup = 1
 " Completion
-let g:completion_matching_smart_case = 1
+" let g:completion_matching_smart_case = 1
 let g:completion_enable_snippet = 'UltiSnips'
+let g:completion_sorting = 'length'
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 " let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
 let g:completion_trigger_on_delete = 1
-let g:completion_auto_change_source = 1
+" let g:completion_auto_change_source = 1
 
 let g:completion_chain_complete_list = [
-    \{'complete_items': ['lsp', 'snippet', 'path']},
+    \{'complete_items': ['lsp']},
+    \{'complete_items': ['snippets']},
+    \{'complete_items': ['path']},
     \{'mode': '<c-p>'},
     \{'mode': '<c-n>'}
 \]
@@ -73,3 +87,6 @@ autocmd BufEnter * lua require'completion'.on_attach()
 
 " Snippets
 let g:UltiSnipsExpandTrigger="<nop>"
+
+" Vimspector
+" let g:vimspector_enable_mappings = 'HUMAN'

@@ -1,2 +1,2 @@
-set guifont=SauceCodePro\ Nerd\ Font\ Mono:h11
+:GuiFont! Source Code Pro:h14
 :GuiPopupmenu 0
