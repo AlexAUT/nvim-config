@@ -57,9 +57,9 @@ nnoremap <silent> gf    <cmd>lua vim.lsp.buf.formatting()<CR>
 nnoremap <silent> gqf   <cmd>lua vim.lsp.buf.code_action()<CR>
 
 " Diagnostics
-nnoremap <silent> <F9>  <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
-nnoremap <silent> <S-F9><cmd>lua vim.lsp.diagnostic_goto_prev()<CR>
-nnoremap <silent> <F10> <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
+nnoremap <silent> <F10>  <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <silent> <S-F10><cmd>lua vim.lsp.diagnostic_goto_prev()<CR>
+nnoremap <silent> <F11> <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
 
 nnoremap ]q :try<bar>cn<bar>catch /^Vim\%((\a\+)\)\=:E\%(553\<bar>42\):/<bar>cfirst<bar>endtry<cr>
 nnoremap [q :try<bar>cp<bar>catch /^Vim\%((\a\+)\)\=:E\%(553\<bar>42\):/<bar>clast<bar>endtry<cr>
