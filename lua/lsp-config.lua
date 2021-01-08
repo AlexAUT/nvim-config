@@ -6,7 +6,8 @@ local on_attach_proxy= function()
 end
 
 require'lspconfig'.clangd.setup{
-    on_attach=on_attach_proxy
+    on_attach=on_attach_proxy,
+   filetypes = { "c", "cpp", "objc", "objcpp" }
   }
 
 require'lspconfig'.pyls.setup{

@@ -17,9 +17,9 @@ cnoreabbrev Qall qall
 map <F9> :NERDTreeFind<CR>
 
 " Search files
-map <C-P> :Files<CR>
+map <C-G> :Files<CR>
 map <C-0> :HFiles<CR>
-map <C-G> :GFiles<CR>
+map <C-P> :GFiles<CR>
 
 " Search for content
 nnoremap <Leader>s :Ag<Space><C-R>=expand('<cword>')<CR><CR>
