@@ -30,12 +30,13 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-  buf_set_keymap('n', '<A-o>', '<cmd>ClangdSwitchSourceHeader<CR>', opts)
+  -- buf_set_keymap('n', '<A-o>', '<cmd>ClangdSwitchSourceHeader<CR>', opts)
+  require "lsp_signature".on_attach(client, bufnr)
 end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'clangd', 'rust_analyzer', 'tsserver' }
+local servers = { 'clangd' }
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
@@ -67,6 +68,7 @@ table.insert(runtime_path, "lua/?/init.lua")
 nvim_lsp.sumneko_lua.setup {
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
   capabilities = capabilities,
+  on_attach = on_attach,
   settings = {
     Lua = {
       runtime = {
@@ -90,3 +92,18 @@ nvim_lsp.sumneko_lua.setup {
     },
   },
 }
+
+-- nvim_lsp.ccls.setup {
+--   filetypes = { "c", "cpp", "cuda", "objc", "objcpp" },
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   init_options = {
+--     compilationDatabaseDirectory = "Debug";
+--     index = {
+--       threads = 0;
+--     };
+--     clang = {
+--       excludeArgs = { "-frounding-math"} ;
+--     };
+--   }
+-- }

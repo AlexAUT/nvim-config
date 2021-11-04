@@ -34,9 +34,9 @@ cmp.setup({
     { name = 'buffer' },
     { name = 'path' },
   }),
-  -- formatting = {
-  --   format = lspkind.cmp_format({with_text = true, maxwidth = 50})
-  -- }
+  formatting = {
+    format = lspkind.cmp_format({with_text = true, maxwidth = 50})
+  }
 })
 
 -- Use buffer source for `/`.
