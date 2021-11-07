@@ -49,6 +49,7 @@ nnoremap <silent> <F2> :call vimspector#StepInto()<CR>
 nnoremap <silent> <F3> :call vimspector#StepOut()<CR>
 
 nnoremap <A-o> :FSHere<CR>
+nnoremap <F9> :NERDTreeFind<CR>
 
 " CMake
 function AfterBuildSucceeded()
