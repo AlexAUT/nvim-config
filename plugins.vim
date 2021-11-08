@@ -59,3 +59,7 @@ au! BufEnter *.cuh let b:fswitchdst = 'cu,cpp' | let b:fswitchlocs = 'reg:/inclu
 
 " let g:clang_format#auto_format_on_insert_leave = 1
 let g:clang_format#auto_formatexpr = 1
+
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set foldlevelstart=20
