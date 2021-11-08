@@ -29,6 +29,8 @@ Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'ThePrimeagen/harpoon'
+Plug 'tpope/vim-fugitive'
+Plug 'rbong/vim-flog'
 
 Plug 'puremourning/vimspector'
 Plug 'cdelledonne/vim-cmake'
