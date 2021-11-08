@@ -27,6 +27,8 @@ Plug 'rhysd/vim-clang-format'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'ThePrimeagen/harpoon'
 
 Plug 'puremourning/vimspector'
 Plug 'cdelledonne/vim-cmake'
