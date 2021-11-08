@@ -58,3 +58,6 @@ cnoreabbrev Qall qall
 
 autocmd BufNewFile,BufRead *.slang set syntax=hlsl
 autocmd BufNewFile,BufRead *.slangh set syntax=hlsl
+
+autocmd BufWritePre * :%s/\s\+$//e
+

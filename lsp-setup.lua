@@ -36,7 +36,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'clangd', 'cmake' }
+local servers = { 'cmake' }
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
@@ -93,17 +93,20 @@ nvim_lsp.sumneko_lua.setup {
   },
 }
 
--- nvim_lsp.ccls.setup {
---   filetypes = { "c", "cpp", "cuda", "objc", "objcpp" },
---   capabilities = capabilities,
---   on_attach = on_attach,
---   init_options = {
---     compilationDatabaseDirectory = "Debug";
---     index = {
---       threads = 0;
---     };
---     clang = {
---       excludeArgs = { "-frounding-math"} ;
---     };
---   }
--- }
+nvim_lsp.ccls.setup {
+  filetypes = { "c", "cpp", "cuda", "objc", "objcpp" },
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  init_options = {
+    compilationDatabaseDirectory = "Debug";
+    index = {
+      threads = 0;
+    };
+    clang = {
+      excludeArgs = { "-frounding-math"} ;
+    };
+  }
+}

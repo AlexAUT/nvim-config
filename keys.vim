@@ -1,7 +1,7 @@
 " FZF
 nnoremap <silent> <leader><space> :GFiles<CR>
 nnoremap <silent> <C-p> :Files<CR>
-nnoremap <leader>a :Ag 
+nnoremap <leader>a :Ag
 nnoremap <leader>A :call SearchWordWithAg()<CR>
 function! SearchWordWithAg()
   execute 'Ag' expand('<cword>')
@@ -50,6 +50,8 @@ nnoremap <silent> <F3> :call vimspector#StepOut()<CR>
 
 nnoremap <A-o> :FSHere<CR>
 nnoremap <F9> :NERDTreeFind<CR>
+
+map <F9> :NERDTreeFind<CR>
 
 " CMake
 function AfterBuildSucceeded()
