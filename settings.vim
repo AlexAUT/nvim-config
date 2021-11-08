@@ -42,7 +42,7 @@ set undolevels=100
 set undoreload=100
 
 " Color
-colorscheme nightfly
+colorscheme duskfox
 
 " Remap typos
 cnoreabbrev W! w!
