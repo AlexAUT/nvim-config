@@ -1,4 +1,4 @@
-fim.g.mapleader = ' '
+vim.g.mapleader = ' '
 vim.g.localleader = ' '
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -22,4 +22,5 @@ require'lazy'.setup({
   require 'plugins.git',
   require 'plugins.telescope',
   require 'plugins.lsp',
+  require 'plugins.completion',
 })

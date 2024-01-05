@@ -19,7 +19,7 @@ return {
         ensure_installed = { 'c', 'cpp', 'lua', 'vim', 'vimdoc', 'cmake', 'markdown', 'markdown_inline' },
         sync_install = false,
         indent = {
-          enable = true,
+          enable = false,
         },
         highlight = {
           enable = true,
@@ -35,5 +35,9 @@ return {
         },
       }
     end,
+  },
+  {
+    'echasnovski/mini.trailspace',
+    opts = {}
   },
 }
