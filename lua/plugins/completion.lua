@@ -27,6 +27,22 @@ return {
             behavior = cmp.ConfirmBehavior.Insert,
             select = true,
           },
+          ['<Tab>'] = cmp.mapping(function(fallback)
+            local ls = require'luasnip'
+            if ls.expand_or_locally_jumpable() then
+              ls.jump(1)
+            else
+              fallback()
+            end
+          end),
+          ['<S-Tab>'] = cmp.mapping(function(fallback)
+            local ls = require'luasnip'
+            if ls.expand_or_locally_jumpable() then
+              ls.jump(-1)
+            else
+              fallback()
+            end
+          end),
         },
         sources = {
           { name = 'nvim_lsp' },
@@ -35,9 +51,6 @@ return {
           { name = 'buffer' },
         },
       }
-
-      vim.keymap.set({"i", "s"}, "<Tab>", function() require'luasnip'.jump(1) end, {silent = true})
-      vim.keymap.set({"i", "s"}, "<S-Tab>", function() require'luasnip'.jump(-1) end, {silent = true})
     end,
-  }
+  },
 }

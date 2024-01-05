@@ -8,6 +8,7 @@ return {
       { 'j-hui/fidget.nvim', opts = {} },
       { 'folke/neodev.nvim', opts = {} },
       'hrsh7th/cmp-nvim-lsp',
+      'ray-x/lsp_signature.nvim',
     },
     config = function()
       local lspconfig = require('lspconfig')
@@ -57,6 +58,7 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)
+          require "lsp_signature".on_attach(signature_setup, ev.bufnr)
           -- Enable completion triggered by <c-x><c-o>
           vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
