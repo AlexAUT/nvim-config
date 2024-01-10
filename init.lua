@@ -18,6 +18,7 @@ require 'config'
 
 require'lazy'.setup({
   require 'plugins.core',
+  require 'plugins.ui',
   require 'plugins.editor',
   require 'plugins.git',
   require 'plugins.telescope',
