@@ -8,6 +8,10 @@ return {
     end,
   },
   {
+    'folke/neoconf.nvim',
+    opts = {}
+  },
+  {
     'NMAC427/guess-indent.nvim',
     opts = {}
   },
