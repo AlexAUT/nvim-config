@@ -23,4 +23,6 @@ require'lazy'.setup({
   require 'plugins.telescope',
   require 'plugins.lsp',
   require 'plugins.completion',
+  require 'plugins.debug',
+  require 'plugins.tasks',
 })
