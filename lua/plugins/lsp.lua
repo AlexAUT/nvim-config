@@ -35,7 +35,6 @@ return {
           }
         end,
         ["clangd"] = function()
-          vim.print("TESTCLANG")
           require 'lspconfig'.clangd.setup {
             capabilities = lsp_capabilities,
             cmd = { 'clangd', '-header-insertion=never' },

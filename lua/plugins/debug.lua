@@ -30,8 +30,6 @@ return {
       require('dap.ext.vscode').json_decode = require 'json5'.parse
       require('dap.ext.vscode').load_launchjs()
 
-      print(dap)
-
       vim.keymap.set('n', '<F5>', function() dap.continue() end, { desc = 'Dap continue' })
       vim.keymap.set('n', '<F10>', function() dap.step_over() end, { desc = 'Dap step over' })
       vim.keymap.set('n', '<F11>', function() dap.step_into() end, { desc = 'Dap step into' })
