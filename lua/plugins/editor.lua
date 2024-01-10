@@ -15,7 +15,7 @@ return {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
     config = function()
-      require'nvim-treesitter.configs'.setup {
+      require 'nvim-treesitter.configs'.setup {
         ensure_installed = { 'c', 'cpp', 'lua', 'vim', 'vimdoc', 'cmake', 'markdown', 'markdown_inline' },
         sync_install = false,
         indent = {
