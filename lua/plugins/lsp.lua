@@ -81,6 +81,13 @@ return {
           nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
           nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
           nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+
+          local client = vim.lsp.get_client_by_id(ev.data.client_id)
+          if client ~= nil then
+            if client.name == 'clangd' then
+              vim.keymap.set("n", "<A-o>", "<CMD>ClangdSwitchSourceHeader<CR>", { desc = "Switch Header/Source File" })
+            end
+          end
         end,
       })
     end,
