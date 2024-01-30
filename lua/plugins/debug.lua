@@ -7,8 +7,8 @@ return {
       'jay-babu/mason-nvim-dap.nvim',
       {
         'Joakker/lua-json5',
-        -- if you're on windows
-        -- run = 'powershell ./install.ps1'
+        -- -- if you're on windows
+        -- build = 'powershell ./install.ps1'
         build = './install.sh'
       },
       { 'theHamsta/nvim-dap-virtual-text', opts = {} },
@@ -27,7 +27,7 @@ return {
       local dap = require 'dap'
       dap.adapters.rust = dap.adapters.codelldb
 
-      require('dap.ext.vscode').json_decode = require 'json5'.parse
+      -- require('dap.ext.vscode').json_decode = require 'json5'.parse
       require('dap.ext.vscode').load_launchjs()
 
       vim.keymap.set('n', '<F5>', function() dap.continue() end, { desc = 'Dap continue' })

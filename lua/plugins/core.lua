@@ -1,10 +1,12 @@
 return {
   {
-    'folke/tokyonight.nvim',
+    -- 'folke/tokyonight.nvim',
+    'neanias/everforest-nvim',
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'tokyonight'
+      -- vim.cmd.colorscheme 'tokyonight'
+      vim.cmd.colorscheme 'everforest'
     end,
   },
   {
