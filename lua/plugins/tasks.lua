@@ -35,4 +35,8 @@ return {
       require("dap.ext.vscode").load_launchjs()
     end,
   },
+  {
+    'Civitasv/cmake-tools.nvim',
+    opts = {}
+  },
 }
