@@ -43,4 +43,4 @@ vim.keymap.set('n', '<C-Left>', [[<cmd>vertical resize -5<cr>]])   -- make the w
 vim.keymap.set('n', '<C-Up>', [[<cmd>horizontal resize +2<cr>]])   -- make the window bigger horizontally by pressing shift and =
 vim.keymap.set('n', '<C-Down>', [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -
 
-vim.keymap.set('n', '<leader>e', [[<cmd>Ex<cr>]], { desc = '[E]xplore' })
+vim.keymap.set('n', '<leader>E', [[<cmd>Ex<cr>]], { desc = '[E]xplore' })
