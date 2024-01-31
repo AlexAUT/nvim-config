@@ -44,3 +44,7 @@ vim.keymap.set('n', '<C-Up>', [[<cmd>horizontal resize +2<cr>]])   -- make the w
 vim.keymap.set('n', '<C-Down>', [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -
 
 vim.keymap.set('n', '<leader>E', [[<cmd>Ex<cr>]], { desc = '[E]xplore' })
+
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')
+vim.o.scrolloff=4
