@@ -59,11 +59,17 @@ return {
             vim.keymap.set('n', keys, func, { buffer = ev.bufnr, desc = desc })
           end
 
+          local tl = require'telescope.builtin'
+
           -- Buffer local mappings.
           -- See `:help vim.lsp.*` for documentation on any of the below functions
           nmap('gD', vim.lsp.buf.declaration, '[g]oto [D]eclaration')
-          nmap('gd', vim.lsp.buf.definition, '[g]oto [d]efinition')
-          nmap('gi', vim.lsp.buf.implementation, '[g]oto [i]mplementation')
+          -- nmap('gd', vim.lsp.buf.definition, '[g]oto [d]efinition')
+          nmap('gd', tl.lsp_definitions, '[g]oto [d]efinition')
+          -- nmap('gi', vim.lsp.buf.implementation, '[g]oto [i]mplementation')
+          nmap('gi', tl.lsp_implementations, '[g]oto [i]mplementation')
+          -- nmap('gr', vim.lsp.buf.references, '[g]oto [r]eferences')
+          nmap('gr', tl.lsp_references, '[g]oto [r]eferences')
           nmap('K', vim.lsp.buf.hover, 'hover')
           nmap('<C-k>', vim.lsp.buf.signature_help, 'signature_help')
           nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[w]orkspace folder [a]dd')
@@ -82,6 +88,8 @@ return {
           nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
           nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
           nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+
+          nmap('<leader>ce', vim.diagnostic.open_float, 'Show line [C]ode [E]rror)')
 
           local client = vim.lsp.get_client_by_id(ev.data.client_id)
           if client ~= nil then
