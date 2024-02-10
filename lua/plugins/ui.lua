@@ -24,8 +24,14 @@ return {
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     config = function()
-      require'neo-tree'.setup{}
+      require 'neo-tree'.setup {}
       vim.keymap.set("n", "<leader>e", [[<cmd>Neotree toggle<cr>]], { desc = "[N]eoTree [T]oggle" })
     end,
   },
+  {
+    "folke/zen-mode.nvim",
+    config = function()
+      vim.keymap.set("n", "<leader>w", require"zen-mode".toggle)
+    end,
+  }
 }
