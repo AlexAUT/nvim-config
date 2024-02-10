@@ -10,6 +10,7 @@ return {
       'hrsh7th/cmp-nvim-lsp',
       'ray-x/lsp_signature.nvim',
       'nvim-telescope/telescope.nvim',
+      'aznhe21/actions-preview.nvim'
     },
     config = function()
       local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -73,7 +74,7 @@ return {
           nmap('<leader>D', vim.lsp.buf.type_definition, 'type [D]efinition')
           nmap('<leader>rn', vim.lsp.buf.rename, '[r]e[n]ame')
           nmap('<leader>ca', vim.lsp.buf.code_action, '[c]ode [a]ction')
-          nmap('gr', vim.lsp.buf.references, '[g]oto [r]eferences')
+          nmap('<leader>ca', require'actions-preview'.code_actions, '[c]ode [a]ction')
           nmap('<leader>f', function()
             vim.lsp.buf.format { async = true }
           end, '[f]ormat')
