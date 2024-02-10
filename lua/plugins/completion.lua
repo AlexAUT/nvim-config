@@ -8,9 +8,16 @@ return {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
+      {
+        'onsails/lspkind.nvim',
+        -- config = function ()
+        --   require'lspkind'.init{}
+        -- end,
+      }
     },
     config = function()
-      local cmp = require'cmp'
+      local cmp = require 'cmp'
+      local lspkind = require 'lspkind'
       cmp.setup {
         snippet = {
           expand = function(args)
@@ -28,7 +35,7 @@ return {
             select = true,
           },
           ['<Tab>'] = cmp.mapping(function(fallback)
-            local ls = require'luasnip'
+            local ls = require 'luasnip'
             if ls.expand_or_locally_jumpable() then
               ls.jump(1)
             else
@@ -36,13 +43,18 @@ return {
             end
           end),
           ['<S-Tab>'] = cmp.mapping(function(fallback)
-            local ls = require'luasnip'
+            local ls = require 'luasnip'
             if ls.expand_or_locally_jumpable() then
               ls.jump(-1)
             else
               fallback()
             end
           end),
+        },
+        formatting = {
+          format = lspkind.cmp_format({
+            preset = 'codicons'
+          }),
         },
         sources = {
           { name = 'nvim_lsp' },
