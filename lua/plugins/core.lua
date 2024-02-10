@@ -37,4 +37,8 @@ return {
       }, { mode = 'v' })
     end,
   },
+  {
+    'echasnovski/mini.bracketed',
+    opts = {},
+  },
 }
