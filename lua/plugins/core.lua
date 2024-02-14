@@ -1,12 +1,19 @@
 return {
+  -- {
+  --   'folke/tokyonight.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme 'tokyonight'
+  --   end,
+  -- },
   {
-    -- 'folke/tokyonight.nvim',
-    'neanias/everforest-nvim',
+    'rose-pine/neovim',
+    name = 'rose-pine',
     lazy = false,
     priority = 1000,
-    config = function()
-      -- vim.cmd.colorscheme 'tokyonight'
-      vim.cmd.colorscheme 'everforest'
+    config = function ()
+      vim.cmd.colorscheme 'rose-pine'
     end,
   },
   {
