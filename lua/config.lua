@@ -1,5 +1,6 @@
 -- Set highlight on search
-vim.o.hlsearch = false
+vim.o.hlsearch = true
+vim.keymap.set('n', '<space><space>', '<CMD>:noh<CR>', {desc='Reset search highlights'})
 -- Make line numbers default
 vim.wo.number = true
 -- Enable mouse mode
