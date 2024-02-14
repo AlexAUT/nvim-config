@@ -10,7 +10,8 @@ return {
       'hrsh7th/cmp-nvim-lsp',
       'ray-x/lsp_signature.nvim',
       'nvim-telescope/telescope.nvim',
-      'aznhe21/actions-preview.nvim'
+      'aznhe21/actions-preview.nvim',
+      'barreiroleo/ltex_extra.nvim',
     },
     config = function()
       local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -39,6 +40,18 @@ return {
           require 'lspconfig'.clangd.setup {
             capabilities = lsp_capabilities,
             cmd = { 'clangd', '-header-insertion=never' },
+          }
+        end,
+        ['ltex'] = function()
+          require 'lspconfig'.ltex.setup {
+            on_attach = function(_, _)
+              require'ltex_extra'.setup{}
+            end,
+            settings = {
+              ltex = {
+                language = 'en-US',
+              }
+            },
           }
         end,
       }
