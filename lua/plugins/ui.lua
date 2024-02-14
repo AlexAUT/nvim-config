@@ -33,5 +33,11 @@ return {
     config = function()
       vim.keymap.set("n", "<leader>w", require"zen-mode".toggle)
     end,
-  }
+  },
+  {
+    'RRethy/vim-illuminate',
+    config = function()
+      require'illuminate'.configure{}
+    end,
+  },
 }
