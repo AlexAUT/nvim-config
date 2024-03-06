@@ -1,6 +1,6 @@
 -- Set highlight on search
 vim.o.hlsearch = true
-vim.keymap.set('n', '<space><space>', '<CMD>:noh<CR>', {desc='Reset search highlights'})
+vim.keymap.set('n', '<space><space>', '<CMD>:noh<CR>', { desc = 'Reset search highlights' })
 -- Make line numbers default
 vim.wo.number = true
 -- Enable mouse mode
@@ -48,7 +48,8 @@ vim.keymap.set('n', '<leader>E', [[<cmd>Ex<cr>]], { desc = '[E]xplore' })
 
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
-vim.o.scrolloff=4
+vim.o.scrolloff = 4
+
 -- File extensions
 vim.filetype.add({
   extension = {
