@@ -37,6 +37,13 @@ return {
   },
   {
     'Civitasv/cmake-tools.nvim',
-    opts = {}
+    opts = {
+      cmake_executor = {
+        name = "overseer",
+      },
+      cmake_runner = {
+        name = "overseer",
+      }
+    }
   },
 }
