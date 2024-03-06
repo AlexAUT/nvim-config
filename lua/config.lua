@@ -49,3 +49,13 @@ vim.keymap.set('n', '<leader>E', [[<cmd>Ex<cr>]], { desc = '[E]xplore' })
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 vim.o.scrolloff=4
+-- File extensions
+vim.filetype.add({
+  extension = {
+    frag = 'glsl',
+    vert = 'glsl',
+    geom = 'glsl',
+    glsl = 'glsl',
+    comp = 'glsl',
+  }
+})
