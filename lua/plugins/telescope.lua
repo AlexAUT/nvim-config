@@ -9,6 +9,7 @@ return {
           build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
         }
       },
+      'nvim-telescope/telescope-dap.nvim'
     },
     config = function() 
       require('telescope').setup {
@@ -24,6 +25,7 @@ return {
 
       -- Enable telescope fzf native, if installed
       pcall(require('telescope').load_extension, 'fzf')
+      require'telescope'.load_extension('dap')
 
       -- Telescope live_grep in git root
       -- Function to find the git root directory based on the current buffer's path
