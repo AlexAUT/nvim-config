@@ -25,12 +25,33 @@ return {
         -- Overrides
         ['lua_ls'] = function()
           require 'lspconfig'.lua_ls.setup {
-            before_init = require 'neodev.lsp'.before_init,
+            -- before_init = require 'neodev.lsp'.before_init,
+            -- settings = {
+            --   Lua = {
+            --     workspace = { checkThirdParty = false },
+            --     telemetry = { enable = false },
+            --     -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+            --     diagnostics = { disable = { 'missing-fields' } },
+            --   },
+            -- },
             settings = {
               Lua = {
-                workspace = { checkThirdParty = false },
-                telemetry = { enable = false },
-                -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+                runtime = { version = 'LuaJIT' },
+                workspace = {
+                  checkThirdParty = false,
+                  -- Tells lua_ls where to find all the Lua files that you have loaded
+                  -- for your neovim configuration.
+                  library = {
+                    '${3rd}/luv/library',
+                    unpack(vim.api.nvim_get_runtime_file('', true)),
+                  },
+                  -- If lua_ls is really slow on your computer, you can try this instead:
+                  -- library = { vim.env.VIMRUNTIME },
+                },
+                completion = {
+                  callSnippet = 'Replace',
+                },
+                -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
                 diagnostics = { disable = { 'missing-fields' } },
               },
             },
@@ -45,7 +66,7 @@ return {
         ['ltex'] = function()
           require 'lspconfig'.ltex.setup {
             on_attach = function(_, _)
-              require'ltex_extra'.setup{}
+              require 'ltex_extra'.setup {}
             end,
             settings = {
               ltex = {
@@ -56,6 +77,7 @@ return {
         end,
       }
 
+      require'lspconfig'.glsl_analyzer.setup{}
 
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -72,7 +94,7 @@ return {
             vim.keymap.set('n', keys, func, { buffer = ev.bufnr, desc = desc })
           end
 
-          local tl = require'telescope.builtin'
+          local tl = require 'telescope.builtin'
 
           -- Buffer local mappings.
           -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -93,7 +115,7 @@ return {
           nmap('<leader>D', vim.lsp.buf.type_definition, 'type [D]efinition')
           nmap('<leader>rn', vim.lsp.buf.rename, '[r]e[n]ame')
           nmap('<leader>ca', vim.lsp.buf.code_action, '[c]ode [a]ction')
-          nmap('<leader>ca', require'actions-preview'.code_actions, '[c]ode [a]ction')
+          nmap('<leader>ca', require 'actions-preview'.code_actions, '[c]ode [a]ction')
           nmap('<leader>f', function()
             vim.lsp.buf.format { async = true }
           end, '[f]ormat')
