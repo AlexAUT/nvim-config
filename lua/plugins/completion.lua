@@ -13,7 +13,10 @@ return {
         -- config = function ()
         --   require'lspkind'.init{}
         -- end,
-      }
+      },
+      'p00f/clangd_extensions.nvim',
+      'lukas-reineke/cmp-under-comparator',
+
     },
     config = function()
       local cmp = require 'cmp'
@@ -55,6 +58,17 @@ return {
           format = lspkind.cmp_format({
             preset = 'codicons'
           }),
+        },
+        sorting = {
+          comparators = {
+            cmp.config.compare.offset,
+            cmp.config.scopes,
+            cmp.config.compare.exact,
+            cmp.config.compare.score,
+            cmp.config.compare.recently_used,
+            require("cmp-under-comparator").under,
+            cmp.config.compare.kind,
+          }
         },
         sources = {
           { name = 'nvim_lsp' },

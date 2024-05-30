@@ -6,12 +6,13 @@ return {
       {
         {
           'nvim-telescope/telescope-fzf-native.nvim',
-          build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+          build =
+          'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
         }
       },
       'nvim-telescope/telescope-dap.nvim'
     },
-    config = function() 
+    config = function()
       require('telescope').setup {
         defaults = {
           mappings = {
@@ -25,7 +26,7 @@ return {
 
       -- Enable telescope fzf native, if installed
       pcall(require('telescope').load_extension, 'fzf')
-      require'telescope'.load_extension('dap')
+      require 'telescope'.load_extension('dap')
 
       -- Telescope live_grep in git root
       -- Function to find the git root directory based on the current buffer's path
@@ -43,7 +44,8 @@ return {
         end
 
         -- Find the Git root directory from the current file's path
-        local git_root = vim.fn.systemlist('git -C ' .. vim.fn.escape(current_dir, ' ') .. ' rev-parse --show-toplevel')[1]
+        local git_root = vim.fn.systemlist('git -C ' .. vim.fn.escape(current_dir, ' ') .. ' rev-parse --show-toplevel')
+        [1]
         if vim.v.shell_error ~= 0 then
           print 'Not a git repository. Searching on current working directory'
           return cwd
@@ -88,8 +90,11 @@ return {
       vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
-      vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+      vim.keymap.set('n', '<leader>sdd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D][D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
+      vim.keymap.set('n', '<leader>sds', require('telescope').extensions.dap.frames, { desc = '[S]earch [D]ap [F]rames' })
+      vim.keymap.set('n', '<leader>sdb', require('telescope').extensions.dap.list_breakpoints, { desc = '[S]earch [D]ap [B]reakpoints' })
+      vim.keymap.set('n', '<leader>sdv', require('telescope').extensions.dap.variables, { desc = '[S]earch [D]ap [V]ariables' })
     end,
   },
 }
