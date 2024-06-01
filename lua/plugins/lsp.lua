@@ -63,8 +63,6 @@ return {
             capabilities = lsp_capabilities,
             cmd = { 'clangd', '-header-insertion=never' },
           }
-          require("clangd_extensions.inlay_hints").setup_autocmd()
-          require("clangd_extensions.inlay_hints").set_inlay_hints()
         end,
         ['ltex'] = function()
           require 'lspconfig'.ltex.setup {
@@ -86,9 +84,6 @@ return {
         capabilities = lsp_capabilities,
         cmd = { '/home/alex/Documents/clang/llvm-project/build/bin/clangd', '-header-insertion=never' },
       }
-      require("clangd_extensions.inlay_hints").setup_autocmd()
-      require("clangd_extensions.inlay_hints").set_inlay_hints()
-
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)
@@ -139,8 +134,6 @@ return {
           local client = vim.lsp.get_client_by_id(ev.data.client_id)
           if client ~= nil then
             if client.server_capabilities.inlayHintProvider then
-              vim.lsp.inlay_hint.enable(true, { bufnr = ev.bufnr })
-
               vim.keymap.set("n", "<leader>ti", function()
                 vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = ev.bufnr }), { bufnr = ev.bufnr })
               end, { desc = "[T]oggle [I]nlay Hints" })
