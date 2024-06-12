@@ -62,20 +62,23 @@ return {
         sorting = {
           comparators = {
             cmp.config.compare.offset,
-            cmp.config.scopes,
             cmp.config.compare.exact,
             cmp.config.compare.score,
             cmp.config.compare.recently_used,
             require("cmp-under-comparator").under,
             cmp.config.compare.kind,
+          },
+        },
+        sources = cmp.config.sources(
+          {
+            { name = 'nvim_lsp' },
+            { name = 'luasnip' },
+          },
+          {
+            { name = 'path' },
+            { name = 'buffer' },
           }
-        },
-        sources = {
-          { name = 'nvim_lsp' },
-          { name = 'path' },
-          { name = 'luasnip' },
-          { name = 'buffer' },
-        },
+        ),
       }
     end,
   },
