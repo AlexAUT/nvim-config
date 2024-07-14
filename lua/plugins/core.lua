@@ -12,7 +12,7 @@ return {
     name = 'rose-pine',
     lazy = false,
     priority = 1000,
-    config = function ()
+    config = function()
       vim.cmd.colorscheme 'rose-pine-moon'
     end,
   },
@@ -26,6 +26,9 @@ return {
   },
   {
     'folke/which-key.nvim',
+    dependencies = {
+      'echasnovski/mini.icons',
+    },
     config = function()
       require('which-key').setup{}
       require('which-key').register {
