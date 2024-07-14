@@ -79,6 +79,7 @@ return {
 
       require 'lspconfig'.glsl_analyzer.setup {}
 
+      -- Use custom clangd for module experiments
       require 'lspconfig'.clangd.setup {
         capabilities = lsp_capabilities,
         cmd = { '/home/alex/Documents/clang/llvm-project/build/bin/clangd', '-header-insertion=never' },
