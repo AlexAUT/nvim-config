@@ -101,7 +101,7 @@ return {
       vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
       vim.keymap.set('n', '<leader>sdd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D][D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
-      vim.keymap.set('n', '<leader>sds', require('telescope').extensions.dap.frames, { desc = '[S]earch [D]ap [F]rames' })
+      vim.keymap.set('n', '<leader>sdf', require('telescope').extensions.dap.frames, { desc = '[S]earch [D]ap [F]rames' })
       vim.keymap.set('n', '<leader>sdb', require('telescope').extensions.dap.list_breakpoints,
         { desc = '[S]earch [D]ap [B]reakpoints' })
       vim.keymap.set('n', '<leader>sdv', require('telescope').extensions.dap.variables,
