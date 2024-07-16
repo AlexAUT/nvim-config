@@ -14,6 +14,13 @@ return {
             "on_exit_set_status",
             "on_complete_notify",
             "on_complete_dispose",
+            {
+              "on_output_quickfix",
+              items_only = true,
+              open_on_match = true,
+            },
+            "on_result_diagnostics",
+            "on_result_diagnostics_quickfix",
           },
           -- Tasks from tasks.json use these components
           default_vscode = {
